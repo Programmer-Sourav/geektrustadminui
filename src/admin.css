@@ -1,0 +1,128 @@
+.adminbody{
+    display: flex;
+    flex-direction: column;
+    width: 1024px;
+    background: rgba(230, 230, 226, 0.686);
+    margin: 0;
+    padding: 0;
+    font-family: Assistant, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica','Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+.searchbar{
+    width: 90%;
+    height: 40px;
+    border: solid gainsboro 2px;
+    border-radius: 4px;
+    outline: none;
+    padding: 8px;
+}
+.listheader{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   font-weight: 600;
+   font-size: medium;
+}
+.cbitemholder{
+    height: 512px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.checkboxitems{
+   display: flex;
+   flex-direction: row;
+   height: 40px;
+   justify-content: space-around;
+   font-size: medium;
+   border: 1px solid gainsboro;
+   font-size: medium;
+}
+.listyle{
+    list-style: none;
+    width: 100%;
+    background: rgba(47, 206, 111, 0.122);
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding-left: 8px;
+}
+.actions{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin: 8px;
+    justify-content: space-around;
+}
+.icons{
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.deletebtn{
+    width: 160px;
+    height: auto;
+    padding: 4px;
+    color: white;
+    background: #f22222c6;
+    font-weight: 200;
+    border-radius: 32px;
+    margin: 16px;
+}
+
+.deletebtn:hover{
+   outline: none;
+   border: none;
+}
+.footer{
+    display: flex;
+    flex-direction: row;
+}
+.pageiconholder{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 48px;
+    align-items: center;
+    align-items: center;
+    text-align: center;
+    margin: 16px;
+}
+.pageicon{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgb(33, 79, 206);
+    color: white;
+    padding: 8px;
+    margin-left: 16px;
+    display: flex;           
+    justify-content: center; 
+    align-items: center;      
+}
+.pageicondisabled{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgb(189, 193, 203);
+    color: white;
+    padding: 8px;
+    margin-left: 16px;
+    display: flex;           
+    justify-content: center; 
+    align-items: center;      
+}
+
+.inputdesign{
+    height: 32px;
+    border: 1px solid gainsboro;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    margin-left: 8px;
+}
