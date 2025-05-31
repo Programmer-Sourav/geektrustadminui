@@ -12,6 +12,7 @@ export default function Home(){
    const [inputSearch, setInputSearch] = useState("")
    const [pageCount, setPageCount] = useState(1)
    const [editable, setEditable] = useState(false)
+   const [selectAll, setSelectAll] = useState([])
 
    const itemsPerPage = 10;
    
@@ -22,10 +23,10 @@ export default function Home(){
 
 
    const whatIsMyCurrentPageNumber = (currentPage) =>{
-         console.log(4455, currentPage)
+         // console.log(4455, currentPage)
          setPageCount(currentPage+1)
    }
-   console.log(989898, lastItemIndex, firstItemIndex,  dataToBeDisplayed, pageCount)
+ 
 
 
    const goToPreviousPage = () =>{
@@ -34,7 +35,7 @@ export default function Home(){
    }
 
    const goToNextPage = () =>{
-      console.log("Next", pageCount)
+      //console.log("Next", pageCount)
       setPageCount(pageCount + 1)
    }
 
@@ -50,7 +51,7 @@ export default function Home(){
       console.error(error);
     }
   }
-  console.log(33131, users, users.length);
+  
 
    useEffect(()=>{
     getListOfUsers()
@@ -66,6 +67,7 @@ export default function Home(){
       setSelectedCb([])
   };
   
+
   const onNameChange = (nameVal, userId) =>{
      const updated = users.map((user)=>(user.id===userId ? {...user, name: nameVal} : user))
      setUsers(updated);
@@ -82,7 +84,7 @@ const onRoleChange = (roleVal, userId) =>{
 }
 
    const onChangeCheckBox= (value) =>{
-      console.log(2222333, value, selectedCb);
+    
          if(selectedCb.find((item)=>item===value)){
             console.log("Filter CB")
            const updated = selectedCb.filter((selectedItem)=>(selectedItem!==value))
@@ -93,7 +95,7 @@ const onRoleChange = (roleVal, userId) =>{
             setSelectedCb( prevState =>[...prevState, value])
          }
    }
-   console.log(555, selectedCb)
+   // console.log(555, selectedCb)
 
    function searchByInput(searchVal){
     setUsers(users.filter((item)=>item.name===searchVal))
@@ -108,7 +110,7 @@ const onRoleChange = (roleVal, userId) =>{
     dataToBeDisplayed = filteredList;
    }
 
-   console.log(888, filteredList);
+ 
 
    function onSearchChange(value){
     setInputSearch(value);
@@ -127,6 +129,11 @@ const onRoleChange = (roleVal, userId) =>{
       setEditable(editable=>!editable)
       //We can call any api to save the changes to the database here.
    }
+   
+   const onAllCbSelected = (allUsers) =>{
+      
+     //const updated = selectAll.filter((selectedItem)=>selectedItem)
+   }
 
    if(filteredList.size>0){
       dataToBeDisplayed = filteredList;
@@ -135,7 +142,7 @@ const onRoleChange = (roleVal, userId) =>{
    const totalPages = Math.ceil(dataToBeDisplayed.length/itemsPerPage);
 
    dataToBeDisplayed = dataToBeDisplayed.slice(firstItemIndex, lastItemIndex);
-   console.log("DDD2", dataToBeDisplayed.length)
+   //console.log("DDD2", dataToBeDisplayed.length)
    
 //    const loadGoogleFontIcons = () =>{
 //     const link = document.createElement('link');
@@ -153,6 +160,11 @@ const onRoleChange = (roleVal, userId) =>{
     return(
         <div className="adminbody">
             <input type="search" value={inputSearch} className="searchbar" placeholder="Search by name, email or role" onChange={(e)=>{onSearchChange(e.target.value)}}></input>
+            <div className="sel-all-btn">
+            <label>
+                <input type="checkbox" checked={selectAll.includes(users)} onChange={()=>{onAllCbSelected(users)}}/>Select All
+                </label>
+            </div>
             <div className="listheader">
                 <p>Name</p>
                 <p>Email</p>
